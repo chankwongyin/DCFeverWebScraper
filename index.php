@@ -21,7 +21,9 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="scraper.php" method="GET">
+                    <!-- <form action="scraper.php" method="GET"> -->
+                    <form action="" method="">
+
                         <div class="form-group">
                             <label for="item" id="label">Search: </label>
                             <input type="text" name="item" id="item" class="form-control"
@@ -37,7 +39,7 @@
                                     placeholder="Max" />
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-warning" name="search" id="search">
+                        <button type="submit" class="btn btn-warning" name="search" id="search" onclick=scrape()>
                             Search
                         </button>
                     </form>
@@ -63,6 +65,25 @@ include 'scraper.php';
             </div>
         </div>
     </main>
+    <script>
+    function scrape() {
+        if (str.length == 0) {
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            var item = document.getElementById("item").value;
+            var min = document.getElementById("min").value;
+            var max = document.getElementById("max").value;
+            xmlhttp.open("GET", "scraper.php?item="+item+"&min="+min+"&max="+max+"&search=" ,true);
+            xmlhttp.send();
+        }
+    }
+    </script>
 </body>
 
 </html>
