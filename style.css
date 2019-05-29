@@ -10,6 +10,14 @@ button {
 label {
   width: 100%;
   text-align: left;
+  margin-top: 10px;
+}
+.form-check-inline {
+  margin: auto;
+}
+#min,
+#max {
+  margin: 0 10px 0 10px;
 }
 
 .list-group-item:hover {
@@ -19,4 +27,16 @@ label {
 .form-group {
   max-width: 450px;
   margin: auto;
+}
+
+.item-info {
+  font-size: 28px;
+}
+.price-info {
+  margin: 0;
+  /* font-size: 28px; */
+}
+
+span {
+  width: 64px;
 }
