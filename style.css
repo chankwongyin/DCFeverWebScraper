@@ -1,7 +1,22 @@
-h1 {
+.container {
   text-align: center;
+}
+
+h1,
+button {
+  margin-top: 10px;
+}
+
+label {
+  width: 100%;
+  text-align: left;
 }
 
 .list-group-item:hover {
   background-color: #a8abaf;
+}
+
+.form-group {
+  max-width: 450px;
+  margin: auto;
 }
