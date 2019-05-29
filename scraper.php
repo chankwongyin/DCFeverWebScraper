@@ -29,13 +29,14 @@ function getData($link)
     $internalErrors = libxml_use_internal_errors(true);
     $doc->loadHTML($html);
 
-// echo $doc->saveHTML();
+    // echo $doc->saveHTML();
 
     $items = $doc->getElementsByTagName('tr');
     $titles = array();
     $prices = array();
     $dates = array();
-// echo $items->saveHTML();
+    $links = array();
+    // echo $items->saveHTML();
     for ($i = 0; $i < count($items); $i++) {
         if ($i == 0 || $i == count($items) - 2) {
             continue;
