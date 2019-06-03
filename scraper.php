@@ -23,7 +23,14 @@ function getData($link)
 //ignore the Notice from PHP
     error_reporting(E_ALL ^ E_NOTICE);
 
-    $html = file_get_contents($link);
+    // $html = file_get_contents($link);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $link);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $html = curl_exec($ch);
+
+    curl_close($ch);
 
     $doc = new DOMDocument();
     $internalErrors = libxml_use_internal_errors(true);
